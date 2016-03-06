@@ -8,7 +8,7 @@ This a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [letse
 $ git clone https://github.com/lukas2511/letsencrypt.sh
 $ cd letsencrypt.sh
 $ mkdir hooks
-$ git clone https://github.com/mdevreugd/letsencrypt-dnsmadeeasy-hook hooks/dynect
+$ git clone https://github.com/mdevreugd/letsencrypt-dynect-hook hooks/dynect
 $ pip install -r hooks/dynect/requirements.txt
 $ . hooks/dynect/dynect-creds.sh
 ```
