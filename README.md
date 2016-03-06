@@ -1,6 +1,6 @@
-# dnsmadeeasy hook for letsencrypt.sh ACME client
+# dynect hook for letsencrypt.sh ACME client
 
-This a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [letsencrypt.sh](https://github.com/lukas2511/letsencrypt.sh), that enables using DNS records on [dnsmadeeasy](https://www.dnsmadeeasy.com/) to respond to `dns-01` challenges. Requires Python 3 and your dnsmadeeasy account apikey and secretkey being set in the environment.
+This a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [letsencrypt.sh](https://github.com/lukas2511/letsencrypt.sh), that enables using DNS records on [DynECT](https://www.dyn.com/) to respond to `dns-01` challenges. Requires Python 2 and your DynECT account credentials being set in your environment.
 
 ## Setup
 
@@ -8,16 +8,15 @@ This a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [letse
 $ git clone https://github.com/lukas2511/letsencrypt.sh
 $ cd letsencrypt.sh
 $ mkdir hooks
-$ git clone https://github.com/alisade/letsencrypt-dnsmadeeasy-hook hooks/dnsmadeeasy
-$ pip install -r hooks/dnsmadeeasy/requirements.txt
-$ export DME_API_KEY='52381b5f-a2e6-4158-bf2d-95537ce13477'
-$ export DME_SECRET_KEY='e6a44469-2a9b-4157-ae24-b8dfd2bf8053'
+$ git clone https://github.com/mdevreugd/letsencrypt-dnsmadeeasy-hook hooks/dynect
+$ pip install -r hooks/dynect/requirements.txt
+$ . hooks/dynect/dynect-creds.sh
 ```
 
 ## Usage
 
 ```
-$ ./letsencrypt.sh -c -d example.com -t dns-01 -k 'hooks/dnsmadeeasy/hook.py'
+$ ./letsencrypt.sh -c -d example.com -t dns-01 -k 'hooks/dynect/dynect-hook.py'
 #
 # !! WARNING !! No main config file found, using default config!
 #
