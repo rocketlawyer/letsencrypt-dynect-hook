@@ -90,11 +90,14 @@ def delete_txt_record(args):
 
 
 def deploy_cert(args):
-    domain, privkey_pem, cert_pem, fullchain_pem, chain_pem = args
+    domain, privkey_pem, cert_pem, fullchain_pem, chain_pem, time_stamp = args
     logger.info(' + ssl_certificate: {0}'.format(fullchain_pem))
     logger.info(' + ssl_certificate_key: {0}'.format(privkey_pem))
     return
 
+def unchanged_cert(args):
+    logger.info(' + no action required')
+    return
 
 def main(argv):
     try:
@@ -116,6 +119,7 @@ def main(argv):
         'deploy_challenge': create_txt_record,
         'clean_challenge' : delete_txt_record,
         'deploy_cert'     : deploy_cert,
+        'unchanged_cert'  : unchanged_cert,
     }
     logger.info(" + dynect hook executing: {0}".format(argv[0]))
     ops[argv[0]](argv[1:])
