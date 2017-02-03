@@ -99,6 +99,10 @@ def unchanged_cert(args):
     logger.info(' + no action required')
     return
 
+def exit_hook(args):
+    logger.info(' + exiting')
+    return
+
 def main(argv):
     try:
         dyn_cust = os.environ['DYN_CUST']
@@ -120,6 +124,7 @@ def main(argv):
         'clean_challenge' : delete_txt_record,
         'deploy_cert'     : deploy_cert,
         'unchanged_cert'  : unchanged_cert,
+        'exit_hook'       : exit_hook,
     }
     logger.info(" + dynect hook executing: {0}".format(argv[0]))
     ops[argv[0]](argv[1:])
