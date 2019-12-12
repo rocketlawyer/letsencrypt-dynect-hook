@@ -127,8 +127,8 @@ def main(argv):
         'exit_hook'       : exit_hook,
     }
     logger.info(" + dynect hook executing: {0}".format(argv[0]))
-        try:
-            ops[argv[0]](argv[1:])
+    try:
+        ops[argv[0]](argv[1:])
     except:
         print ("Skipping - unexpected hook parameter : " + argv[0])
         sys.exit(0)
